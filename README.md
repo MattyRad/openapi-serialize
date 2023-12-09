@@ -1,6 +1,11 @@
 # openapi-serialize
 
+
 Serialize an object directly from [swagger-php](https://github.com/zircote/swagger-php) attributes.
+
+```php
+composer require mattyrad/openapi-serialize
+```
 
 ```php
 use OpenApi\Attributes as OpenApi;
@@ -18,12 +23,16 @@ $sample = new class() {
     }
 };
 
-$serialized = Serializer::serialize($sample);
+$serialized = MattyRad\OpenApi\Serializer::serialize($sample);
 
 assert($serialized == ['two_plus_two' => 4, 'greeting' => 'hello world']);
 ```
 
 This means that if you document all of your response data using swagger-php attributes, your API documentation will *necessarily* match the response format.
+
+Testing apparatus to verify that a response matches OpenApi schema becomes a formality- or altogether unnecessary.
+
+## Examples
 
 ```php
 use MattyRad\OpenApi\Serializer;
@@ -61,7 +70,7 @@ trait SerializesFromOpenApi
     }
 }
 
-final class Greeting
+final class Greeting implements \JsonSerializable
 {
     use SerializesFromOpenApi;
 
