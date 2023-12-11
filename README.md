@@ -30,7 +30,7 @@ assert($serialized == ['two_plus_two' => 4, 'greeting' => 'hello world']);
 
 This means that if you document all of your response data using swagger-php attributes, your API documentation will *necessarily* match the response format.
 
-Testing apparatus to verify that a response matches OpenApi schema becomes a formality- or altogether unnecessary.
+The need for tests to verify that a response matches OpenApi schema mostly becomes a formality- or altogether unnecessary.
 
 ## Examples
 
